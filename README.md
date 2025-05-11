@@ -1,85 +1,74 @@
-# 🦁 Sistema de Gerenciamento de Zoológico
+# Sistema de Gerenciamento de Zoológico
 
-Este projeto foi desenvolvido como parte do desafio técnico para a vaga de estágio da equipe Devs CIEE/PR.  
-Ele consiste em um sistema web completo para o gerenciamento de animais e cuidados em um zoológico, utilizando tecnologias modernas no frontend e backend.
+Este projeto foi desenvolvido como parte do teste prático para a vaga de estágio no CIEE/PR.  
+O sistema tem como objetivo permitir o cadastro, listagem e gerenciamento de animais e cuidados veterinários de forma simples e funcional, utilizando tecnologias modernas de desenvolvimento web.
 
----
+## Funcionalidades
 
-## 🚀 Funcionalidades
+**Animais**
+- Listar animais cadastrados
+- Cadastrar novo animal
+- Atualizar informações
+- Remover registros
 
-### 🐾 Animais
-- Listagem de animais
-- Cadastro de novo animal
-- Edição de informações
-- Remoção
+**Cuidados**
+- Listar cuidados aplicados aos animais
+- Cadastrar novo cuidado (alimentação, banho, exames, etc.)
 
-### 🩺 Cuidados
-- Listagem de cuidados aplicados aos animais
-- Cadastro de novo cuidado (alimentação, banho, exame etc.)
+## Tecnologias Utilizadas
 
----
-
-## 💻 Tecnologias Utilizadas
-
-### Frontend:
-- [React.js](https://reactjs.org/)
+**Frontend**
+- React.js
 - React Router DOM
 - Fetch API
-- HTML5 + CSS3
 
-### Backend:
-- [Python](https://www.python.org/)
-- [Flask](https://flask.palletsprojects.com/)
+**Backend**
+- Python
+- Flask
 - Flask-CORS
 - MySQL Connector
 
-### Banco de Dados:
-- [MySQL 8.0](https://dev.mysql.com/)
-
----
-
-## 🗃️ Estrutura do Projeto
-
-zoologico-projeto/
-├── backend/ # API Flask + MySQL
-│ ├── app.py
-│ ├── routes.py
-│ ├── models.py
-│ ├── database.py
-├── frontend/
-│ └── src/
-│ ├── components/
-│ │ ├── AnimalList.js
-│ │ ├── CadastroAnimal.js
-│ │ └── Cuidados.js
-│ └── App.js
-├── screenshots/
-│ ├── lista-animais.png
-│ └── cuidados.png
-└── README.md
-
-
-
----
-
-## ⚙️ Como rodar o projeto localmente
-
-### 🔧 Pré-requisitos
-- Python 3.10+
+**Banco de Dados**
 - MySQL 8.0
-- Node.js + npm
 
----
+## Estrutura do Projeto
 
-### 🔹 1. Clonar o repositório
+```
+zoologico-projeto/
+├── backend/
+│   ├── app.py
+│   ├── routes.py
+│   ├── models.py
+│   ├── database.py
+│   └── zoologico.sql
+├── frontend/
+│   └── src/
+│       ├── App.js
+│       └── components/
+│           ├── AnimalList.js
+│           ├── CadastroAnimal.js
+│           └── Cuidados.js
+├── screenshots/
+│   ├── lista-animais.png
+│   └── cuidados.png
+└── README.md
+```
+
+## Como executar o projeto localmente
+
+### 1. Clonar o repositório
+
 ```bash
 git clone https://github.com/gustavotab/zoologico-projeto.git
 cd zoologico-projeto
-🔹 2. Configurar o banco de dados
-Acesse o MySQL Workbench e crie o banco:
+```
 
+### 2. Configurar o banco de dados
+
+Crie o banco e execute os comandos abaixo no MySQL:
+
+```sql
 CREATE DATABASE zoologico;
-Crie as tabelas:
 
 CREATE TABLE IF NOT EXISTS animais (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -99,46 +88,44 @@ CREATE TABLE IF NOT EXISTS cuidados (
     data_cuidado DATE NOT NULL,
     FOREIGN KEY (animal_id) REFERENCES animais(id)
 );
-Insira dados de exemplo:
+```
 
-INSERT INTO animais (nome, tipo, especie, habitat, pais_origem, descricao, data_nascimento)
-VALUES
-('Leão', 'Mamífero', 'Felino', 'Savanas', 'África', 'Rei da selva', '2010-04-01');
-🔹 3. Rodar o backend (Flask API)
+### 3. Executar o backend (Flask)
+
+```bash
 cd backend
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
 python app.py
-A API estará disponível em: http://localhost:5000
+```
 
-🔹 4. Rodar o frontend (React)
-cd frontend
+API disponível em: `http://localhost:5000`
+
+### 4. Executar o frontend (React)
+
+```bash
+cd ../frontend
 npm install
 npm start
-A aplicação será iniciada em: http://localhost:3000
+```
 
-## 📸 Prints
+Frontend disponível em: `http://localhost:3000`
 
-### 📋 Lista de Animais
+## Prints do Projeto
+
+### Lista de Animais
+
 ![Lista de Animais](./screenshots/lista-animais.png)
 
-### 🩺 Cuidados
+### Cuidados
+
 ![Cuidados](./screenshots/cuidados.png)
 
+## Considerações finais
 
-📌 Sobre os diferenciais
-O desafio citava como diferenciais o uso de SQL Server e API em .NET Core.
-Neste projeto, utilizei MySQL e Flask (Python) para maior agilidade no desenvolvimento e por familiaridade técnica.
-Estou totalmente aberto e disponível para evoluir o projeto com essas tecnologias em versões futuras, mostrando minha adaptabilidade e aprendizado constante.
+O desafio pedia uso de .NET e SQL Server como diferencial. Como ainda estou em aprendizado, desenvolvi a aplicação com Python, Flask e MySQL, tecnologias com as quais tenho maior familiaridade no momento. Estou aberto a aprender qualquer nova stack.
 
-🙋‍♂️ Autor
-Gustavo Taborda
-Desenvolvedor em formação | Entusiasta em full-stack
-[LinkedIn](https://www.linkedin.com/in/gustavoandradetaborda/) · [GitHub](https://github.com/gustavotab)
+Este projeto representou um grande passo no meu desenvolvimento como programador, tanto no backend quanto no frontend.
 
-📌 Observação Final
-Mesmo se o projeto não estiver 100% completo, entreguei com total dedicação para demonstrar minha evolução em lógica, backend e frontend.
-Foi um desafio de aprendizado e superação — e estou aberto a feedbacks para continuar crescendo!
-
-🏁 Obrigado pela oportunidade!
+Obrigado pela oportunidade!
