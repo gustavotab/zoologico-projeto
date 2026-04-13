@@ -129,3 +129,5 @@ O desafio pedia uso de .NET e SQL Server como diferencial. Como ainda estou em a
 Este projeto representou um grande passo no meu desenvolvimento como programador, tanto no backend quanto no frontend.
 
 Obrigado pela oportunidade!
+
+Atualização para teste de CI
