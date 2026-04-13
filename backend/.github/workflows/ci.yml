@@ -21,4 +21,4 @@ jobs:
         run: pip install -r backend/requirements.txt
 
       - name: Teste simples
-        run: echo "CI funcionando"
+        run: echo "CI funcionando" # trigger
