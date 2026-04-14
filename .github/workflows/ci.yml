@@ -25,4 +25,4 @@ jobs:
           pip install -r backend/requirements.txt
 
       - name: Teste simples
-
+        run: echo "CI funcionando 🚀"
