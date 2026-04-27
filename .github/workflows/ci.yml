@@ -24,5 +24,8 @@ jobs:
           pip install --upgrade pip
           pip install -r backend/requirements.txt
 
-      - name: Teste simples
-        run: echo "CI funcionando 🚀"
+      - name: Instalar pytest
+        run: pip install pytest
+
+      - name: Rodar testes
+        run: python -m pytest
